@@ -1,7 +1,8 @@
-import {Component} from 'angular2/core'
+import {Component} from "angular2/core"
 
 @Component({
-    selector: 'angular2-typescript',
-    template: '<h3>holala, Angular 2!</h3>'
+  selector: 'angular2-typescript',
+  templateUrl: 'app/components/App.html',
+  styleUrls: [ 'app/components/App.css' ]
 })
 export class App {}
