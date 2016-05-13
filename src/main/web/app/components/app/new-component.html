@@ -1,0 +1,6 @@
+<div>
+  <p>Holla, <span [class.red]="inputElement.value === 'fun'">{{name}}</span></p>
+  <input type="text" #inputElement (keyup)="0">
+  <button [disabled]="inputElement.value === 'hold'">update on hold</button>
+  <div [style.fontSize]="'18em'">(:</div>
+</div>
