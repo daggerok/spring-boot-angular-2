@@ -1,25 +1,21 @@
-sudo: required
 language: java
-node_js: 6
-jdk:
-  - oraclejdk8
-services:
-  - docker
+jdk: oraclejdk8
+services: docker
+env: SPRING_PROFILES_ACTIVE=travis-ci
 before_install:
   - nvm install 6
-  - docker-compose up
+  - docker-compose up -d
 script:
-  - npm i
-  - npm run tsc
-  - npm run tslint
+  - npm run travis-ci
   - gradle clean build
-cache:
-  directories:
-    - node_modules
-    - .gradle
-    - gradle
-    - $HOME/.m2
-    - $HOME/.gradle
-notifications:
-  on_failure: change # always|never
-#  on_success: change
+after_script:
+  - docker-compose kill
+  - true & cat ./*.log
+cache.directories:
+  - /var/lib/docker
+  - $HOME/.gradle
+  - $HOME/.m2
+  - node_modules
+  - .gradle
+  - gradle
+notifications.on_failure: change # always|never

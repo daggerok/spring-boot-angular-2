@@ -17,14 +17,14 @@
     <script>
       System.config({
         packages: {
-          'src/main/web/app': {
+          'app': {
             format: 'register',
             defaultExtension: 'js'
           }
         }
-      });
-      System.import('src/main/web/app/entry')
-            .then(null, console.error.bind(console));
+      })
+      System.import('app/entry')
+            .then(null, console.error.bind(console))
     </script>
   </head>
   <!-- 3. Display the application -->

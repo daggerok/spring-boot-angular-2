@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="panel panel-heading">
+    <section
+        [hidden]="
+          name.value.length > 0 && guess1.value !== '' && guess1.value == num1
+            && guess2.value !== '' && guess2.value == num2 && guess3.value !== ''
+            && guess3.value == num3 && guess4.value !== '' && guess4.value == num4
+        "
+    >
+      Enter your name: <input type="text" #name (keyup)="0">
+    </section>
+
+    <section
+        [ngStyle]="{
+        display: name.value.length > 0 && guess1.value !== '' && guess1.value == num1
+          && guess2.value !== '' && guess2.value == num2 && guess3.value !== ''
+          && guess3.value == num3 && guess4.value !== '' && guess4.value == num4
+
+            ? 'block' : 'none'
+      }"
+    >
+      <h2 class="green">Congratulations, {{name.value}}!</h2>
+      Winnings numbers are: {{num1}}, {{num2}}, {{num3}}, {{num4}}
+    </section>
+  </div>
+
+  <section
+      [hidden]="
+        name.value.length === 0 || ( guess1.value !== '' && guess1.value == num1
+          && guess2.value !== '' && guess2.value == num2 && guess3.value !== ''
+          && guess3.value == num3 && guess4.value !== '' && guess4.value == num4 )
+      "
+  >
+    <h3 class="blue">hi {{name.value}}, let's play Guess Numbers Game (from 0 to {{level}})</h3>
+
+    guess 1: <input type="text" #guess1 (keyup)="0"><br>
+    guess 2: <input type="text" #guess2 (keyup)="0"><br>
+    guess 3: <input type="text" #guess3 (keyup)="0"><br>
+    guess 4: <input type="text" #guess4 (keyup)="0"><br>
+  </section>
+</div>

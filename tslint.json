@@ -68,7 +68,8 @@
       "check-whitespace"
     ],
     "quotemark": [
-      true,
+      false,
+      "double",
       "single",
       "avoid-escape"
     ],

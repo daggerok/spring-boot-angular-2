@@ -1,58 +1,74 @@
 {
   "scripts": {
-    "test": "npm run watch -- live-server",
-    "start": "npm run watch -- lite-server",
-
+    "test": "npm i && npm run tslint",
     "tslint": "tslint 'src/main/web/app/**/*.ts'",
-    "clean": "rimraf -rf src/main/web/app/**/*.js*",
-    "lite-server": "lite-server",
-    "live-server": "live-server --open=./spec.html",
-    "watch": "npm i && npm-run-all --parallel watch:tsc",
-    "watch:tsc": "tsc -w",
-    "tsc": "tsc",
 
-    "typings:init": "typings init || true",
-    "typings:i:sa": "typings i es6-shim -SA",
-    "typings:i:da": "typings i jasmine -DA",
-    "postinstall": "npm-run-all typings:init typings:i:*"
+    "start": "npm run dev -- server",
+    "dev": "npm i && npm-run-all --parallel watch",
+    "watch": "tsc -w",
+    "server": "lite-server",
+
+    "travis-ci": "npm i --no-optional && npm-run-all tslint build:clean build:compile",
+
+    "build": "npm i && npm-run-all build:*",
+    "build:clean": "true & npm-run-all clean:*",
+    "build:compile": "tsc",
+    "build:deploy": "ncp src/main/web src/main/resources/public",
+    "build:vendors-mkdir": "mkdir -p src/main/resources/public/node_modules/{bootstrap/dist,es6-shim,systemjs/dist,angular2,rxjs/bundles}",
+    "build:vendors-bootstrap": "ncp node_modules/bootstrap/dist src/main/resources/public/node_modules/bootstrap/dist",
+    "build:vendors-es6-shim": "ncp node_modules/es6-shim       src/main/resources/public/node_modules/es6-shim",
+    "build:vendors-systemjs": "ncp node_modules/systemjs/dist  src/main/resources/public/node_modules/systemjs/dist",
+    "build:vendors-angular2": "ncp node_modules/angular2       src/main/resources/public/node_modules/angular2",
+    "build:vendors-rxjs": "ncp node_modules/rxjs/bundles   src/main/resources/public/node_modules/rxjs/bundles",
+    "clean:web": "rimraf -rf src/main/web/app/**/*.{js,js.map}",
+    "clean:public": "rimraf -rf src/main/resources/public",
+    "clean:build": "rimraf -rf build/resources/main/public",
+
+    "postinstall": "npm-run-all typings:*",
+    "typings:cliean": "rimraf -rf typings*",
+    "typings:init": "typings init",
+    "typings:sa": "typings i es6-shim -SA",
+    "typings:da": "typings i node -DA"
   },
   "dependencies": {
-    "angular2": "2.0.0-beta.12",
-    "bootstrap": "^3.3.6",
-    "es6-shim": "^0.35.0",
+    "angular2": "2.0.0-beta.17",
     "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.2",
-    "systemjs": "0.19.24",
-    "zone.js": "0.6.6"
+    "es6-promise": "^3.2.1",
+    "es6-shim": "^0.35.0",
+    "rxjs": "5.0.0-beta.6",
+    "systemjs": "0.19.27",
+    "zone.js": "0.6.12",
+    "bootstrap": "^3.3.6"
   },
   "devDependencies": {
-    "jasmine": "^2.4.1",
-    "jasmine-core": "^2.4.1",
+    "typings": "^0.8.1",
+    "cash-mkdir": "^0.2.0",
     "lite-server": "^2.1.0",
-    "live-server": "^0.9.2",
-    "npm-run-all": "^1.6.0",
+    "ncp": "^2.0.0",
+    "npm-run-all": "^2.1.0",
     "rimraf": "^2.5.2",
-    "systemjs": "^0.19.24",
     "tslint": "^3.6.0",
-    "typescript": "^1.8.10",
-    "typings": "^0.7.9"
+    "typescript": "^1.8.10"
   },
   "keywords": [
     "angular2",
     "typescript",
     "typings",
-    "jasmine",
     "lite-server",
-    "live-server",
     "tslint"
   ],
-  "main": "src/index.js",
-  "directories": {
-    "test": "test"
-  },
+  "main": "src/main/web/app/entry.js",
   "license": "ISC",
   "version": "1.0.0",
   "author": "Maksim Kostromin",
   "name": "spring-boot-angular-2",
-  "description": "spring-boot-angular-2"
+  "description": "spring-boot-angular-2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daggerok/spring-boot-angular-2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/daggerok/spring-boot-angular-2/issues"
+  },
+  "homepage": "https://github.com/daggerok/spring-boot-angular-2#readme"
 }
