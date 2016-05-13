@@ -1,6 +1,7 @@
-redis:
+db:
+  container_name: spring-boot-angular-2
   image: redis
   volumes:
-    - data:/etc/redis/database
+    - .:/etc/redis/database
   ports:
     - 6379:6379
