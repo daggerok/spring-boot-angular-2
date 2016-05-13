@@ -21,9 +21,8 @@ import java.time.format.DateTimeFormatter;
 public class User implements Serializable {
 
     private static final long serialVersionUID = 4543948388546813288L;
+
     final String createdAt = LocalDateTime.now().format(DateTimeFormatter.BASIC_ISO_DATE);
-    @Id
-    String id;
-    @NonNull
-    String username;
+    @Id String id;
+    @NonNull String username;
 }
