@@ -1,0 +1,6 @@
+redis:
+  image: redis
+  volumes:
+    - data:/etc/redis/database
+  ports:
+    - 6379:6379

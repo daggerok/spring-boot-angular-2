@@ -1,0 +1,25 @@
+sudo: required
+language: java
+node_js: 6
+jdk:
+  - oraclejdk8
+services:
+  - docker
+before_install:
+  - nvm install 6
+  - docker-compose up
+script:
+  - npm i
+  - npm run tsc
+  - npm run tslint
+  - gradle clean build
+cache:
+  directories:
+    - node_modules
+    - .gradle
+    - gradle
+    - $HOME/.m2
+    - $HOME/.gradle
+notifications:
+  on_failure: change # always|never
+#  on_success: change

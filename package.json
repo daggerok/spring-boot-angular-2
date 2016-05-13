@@ -1,0 +1,58 @@
+{
+  "scripts": {
+    "test": "npm run watch -- live-server",
+    "start": "npm run watch -- lite-server",
+
+    "tslint": "tslint 'src/main/web/app/**/*.ts'",
+    "clean": "rimraf -rf src/main/web/app/**/*.js*",
+    "lite-server": "lite-server",
+    "live-server": "live-server --open=./spec.html",
+    "watch": "npm i && npm-run-all --parallel watch:tsc",
+    "watch:tsc": "tsc -w",
+    "tsc": "tsc",
+
+    "typings:init": "typings init || true",
+    "typings:i:sa": "typings i es6-shim -SA",
+    "typings:i:da": "typings i jasmine -DA",
+    "postinstall": "npm-run-all typings:init typings:i:*"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.12",
+    "bootstrap": "^3.3.6",
+    "es6-shim": "^0.35.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "systemjs": "0.19.24",
+    "zone.js": "0.6.6"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "lite-server": "^2.1.0",
+    "live-server": "^0.9.2",
+    "npm-run-all": "^1.6.0",
+    "rimraf": "^2.5.2",
+    "systemjs": "^0.19.24",
+    "tslint": "^3.6.0",
+    "typescript": "^1.8.10",
+    "typings": "^0.7.9"
+  },
+  "keywords": [
+    "angular2",
+    "typescript",
+    "typings",
+    "jasmine",
+    "lite-server",
+    "live-server",
+    "tslint"
+  ],
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "license": "ISC",
+  "version": "1.0.0",
+  "author": "Maksim Kostromin",
+  "name": "spring-boot-angular-2",
+  "description": "spring-boot-angular-2"
+}

@@ -1,0 +1,3 @@
+spring:
+  redis.host: docker
+  data.rest.base-path: /api

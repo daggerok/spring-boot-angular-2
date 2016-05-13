@@ -1,0 +1,15 @@
+**/.gradle/
+**/.idea/
+**/build/
+**/classes/
+**/out/
+**/gradle*
+**/.DS_Store
+**/*.iml
+**/*.ipr
+**/*.iws
+**/node_modules/
+**/typings/
+src/**/*.js
+src/**/*.js.map
+**/*.log*
