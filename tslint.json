@@ -68,13 +68,14 @@
       "check-whitespace"
     ],
     "quotemark": [
-      true,
+      false,
+      "double",
       "single",
       "avoid-escape"
     ],
     "radix": true,
     "semicolon": [
-      true,
+      false,
       "never"
     ],
     "switch-default": true,
