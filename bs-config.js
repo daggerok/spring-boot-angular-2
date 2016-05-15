@@ -11,7 +11,7 @@
  */
 module.exports = {
   files: [
-    "./**/*.*"
+    "src/main/web"
   ],
   server: {
     baseDir: "./src/main/web"
@@ -20,7 +20,9 @@ module.exports = {
     '.' // node_modules/
   ],
   snippetOptions: {
-    ignorePaths: "**/*.ts"
+    ignorePaths: [
+      "**/*.ts"
+    ]
   },
   ui: {
     port: 3001,

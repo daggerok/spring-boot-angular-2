@@ -16,9 +16,12 @@
       <child
           [nameParam]="parentName"
           [mailParam]="parentMail"
+          (hobbiesAreChangedEvent)="parentHobbies = $event"
       >
         loading child...
       </child>
     </section>
+
+    <div [hidden]="inProgress()">{{parentHobbies}}</div>
   </section>
 </div>

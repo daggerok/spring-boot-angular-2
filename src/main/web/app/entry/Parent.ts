@@ -1,4 +1,4 @@
-import {Component, Output} from "angular2/core"
+import {Component, Output} from 'angular2/core'
 import {Child} from './Parent/Child'
 
 let isEmpty = (str: string): boolean => null == str || str.length < 1
@@ -14,6 +14,7 @@ export class Parent {
   public parentName: string
   public parentAge: number
   @Output('mailParam') public parentMail: string
+  public parentHobbies: string
 
   public ageIsHidden(): boolean {
     return isEmpty(this.parentName)
