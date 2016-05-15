@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="panel panel-heading"><h3 class="blue">Angular 2: parent-child components data binding</h3></div>
+  <section class="parent">
+    please, enter your <br>
+
+    <span>name: <input type="text" [(ngModel)]="parentName"><br></span>
+
+    <span [hidden]="ageIsHidden()">age: <input type="text" [(ngModel)]="parentAge"><br></span>
+
+    <span [hidden]="mailIsHidden()">mail: <input type="text" [(ngModel)]="parentMail"><br></span>
+
+    <div>parent {{parentName}} {{parentAge}} {{parentMail}}</div>
+
+    <section class="child" [hidden]="inProgress()">
+      <!--[ageParam]="parentAge"-->
+      <child
+          [nameParam]="parentName"
+          [mailParam]="parentMail"
+      >
+        loading child...
+      </child>
+    </section>
+  </section>
+</div>

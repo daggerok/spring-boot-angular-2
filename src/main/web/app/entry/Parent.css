@@ -1,0 +1,11 @@
+.blue {
+  color: deepskyblue;
+}
+.parent {
+  padding: 5%;
+  background-color: lightgray;
+}
+.child {
+  padding: 5%;
+  background-color: darkgray;
+}

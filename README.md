@@ -4,7 +4,7 @@ spring-boot-angular-2 [![build](https://travis-ci.org/daggerok/spring-boot-angul
 sources
 
 ```bash
-git clone --depth=1 --branch=master https://github.com/daggerok/spring-boot-angular-2.git spring-boot-angular-2
+git clone --depth=1 --branch=ng-components-databinding https://github.com/daggerok/spring-boot-angular-2.git spring-boot-angular-2
 cd $_
 ```
 
