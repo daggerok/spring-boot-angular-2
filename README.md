@@ -1,12 +1,22 @@
 spring-boot-angular-2 [![build](https://travis-ci.org/daggerok/spring-boot-angular-2.svg?branch=master)](https://travis-ci.org/daggerok/spring-boot-angular-2)
-==========================
+=====================
 
 sources
 
 ```bash
-git clone --depth=1 --branch=master https://github.com/daggerok/spring-boot-angular-2.git spring-boot-angular-2
+git clone --depth=1 --branch=custom-ng-directives https://github.com/daggerok/spring-boot-angular-2.git spring-boot-angular-2
 cd $_
 ```
+
+**on the beginning frontend is not required full backend**
+
+so you can develop with lite-server:
+
+```sh
+npm start
+```
+
+**read this part only if you need start server and redis**
 
 start redis server (docker is required)
 
