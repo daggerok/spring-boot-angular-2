@@ -1,5 +1,6 @@
 <html>
   <head>
+    <base href="/">
     <title>Angular 2 QuickStart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
@@ -12,19 +13,21 @@
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.min.js"></script>
+    <script src="node_modules/angular2/bundles/http.min.js"></script>
     <!-- 2. Configure SystemJS -->
     <script>
       System
           .config({
             packages: {
-              'index': {
+              'app': {
                 format: 'register',
                 defaultExtension: 'js'
               }
             }
           })
       System
-          .import('./index/main')
+          .import('./app/main')
           .then(null, console.error.bind(console))
     </script>
   </head>
