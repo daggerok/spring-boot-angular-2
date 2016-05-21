@@ -19,11 +19,11 @@ import {Item, Items} from './Item'
 })
 export class EditItemComponent {
   @Input('item') private item: Item = Items.empty()
-  @Input('selectedItem') selectedItem: Item
 
   @Output('itemDeletedEvent') private itemDeletedEvent: EventEmitter<Item> = new EventEmitter<Item>()
   @Output('doneEvent') private doneEvent: EventEmitter<string> = new EventEmitter<string>()
 
   public onItemDeleted = () => this.itemDeletedEvent.emit(this.item)
+
   public onDone = () => this.doneEvent.emit('done')
 }
