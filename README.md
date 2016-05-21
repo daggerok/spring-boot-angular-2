@@ -1,10 +1,10 @@
-spring-boot-angular-2 [![build](https://travis-ci.org/daggerok/spring-boot-angular-2.svg?branch=shopping-list-app-services)](https://travis-ci.org/daggerok/spring-boot-angular-2)
+spring-boot-angular-2 [![build](https://travis-ci.org/daggerok/spring-boot-angular-2.svg?branch=shopping-list-app-services-form)](https://travis-ci.org/daggerok/spring-boot-angular-2)
 =====================
 
 sources
 
 ```bash
-git clone --depth=1 --branch=shopping-list-app-services https://github.com/daggerok/spring-boot-angular-2.git spring-boot-angular-2
+git clone --depth=1 --branch=shopping-list-app-services-form https://github.com/daggerok/spring-boot-angular-2.git spring-boot-angular-2
 cd $_
 ```
 
