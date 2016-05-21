@@ -8,9 +8,9 @@
 **/*.iml
 **/*.ipr
 **/*.iws
-**/node_modules/
-ui/typings*
 src/main/resources/public
-ui/**/*.js
-ui/**/*.js.map
+**/node_modules/
 **/*.log*
+ui/typings*
+ui/web/**/*.js
+ui/web/**/*.js.map
