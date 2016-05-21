@@ -3,13 +3,18 @@ buildscript {
     jcenter()
     maven { url "https://repo.spring.io/milestone" }
   }
-  ext { springBootVersion = '1.4.0.M2' }
-  dependencies { classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion" }
+  ext { springBootVersion = '1.4.0.M3' }
+  dependencies {
+    classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion",
+        'com.github.ben-manes:gradle-versions-plugin:0.12.0'
+  }
 }
 
 plugins { id 'io.spring.dependency-management' version '0.5.6.RELEASE' }
 //dependencyManagement { imports { mavenBom "org.springframework.boot:spring-boot-dependencies:$springBootVersion" }}
 apply plugin: 'spring-boot'
+// gradle dependencyUpdates
+apply plugin: 'com.github.ben-manes.versions'
 
 version = '1.0.0'
 jar { baseName = 'spring-boot-angular-2' }

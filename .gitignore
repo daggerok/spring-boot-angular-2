@@ -8,9 +8,9 @@
 **/*.iml
 **/*.ipr
 **/*.iws
-**/node_modules/
-typings*
 src/main/resources/public
-src/**/*.js
-src/**/*.js.map
+**/node_modules/
 **/*.log*
+ui/typings*
+!ui/**/tsconfig.json
+ui/web/**/*.js*
