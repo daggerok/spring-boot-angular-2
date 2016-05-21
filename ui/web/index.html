@@ -17,14 +17,14 @@
       System
           .config({
             packages: {
-              'index': {
+              'app': {
                 format: 'register',
                 defaultExtension: 'js'
               }
             }
           })
       System
-          .import('./index/main')
+          .import('./app/main')
           .then(null, console.error.bind(console))
     </script>
   </head>
