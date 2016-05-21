@@ -1,35 +1,35 @@
 {
   "scripts": {
     "test": "npm i && npm run tslint",
-    "tslint": "tslint 'src/main/web/app/**/*.ts'",
+    "tslint": "tslint './web/app/**/*.ts'",
 
     "start": "npm run dev -- server",
     "dev": "npm i && npm-run-all --parallel watch",
     "watch": "tsc -w",
     "server": "lite-server",
 
-    "travis-ci": "npm i --no-optional && npm-run-all tslint build:clean build:compile",
+    "travis-ci": "npm i && npm-run-all tslint build:clean build:compile",
 
     "build": "npm i && npm-run-all build:*",
     "build:clean": "true & npm-run-all clean:*",
     "build:compile": "tsc",
-    "build:deploy": "ncp src/main/web src/main/resources/public",
-    "build:vendors-mkdir": "mkdir -p src/main/resources/public/node_modules/{bootstrap/dist,es6-shim,systemjs/dist,angular2,rxjs/bundles}",
-    "build:vendors-bootstrap": "ncp node_modules/bootstrap/dist src/main/resources/public/node_modules/bootstrap/dist",
-    "build:vendors-es6-shim": "ncp node_modules/es6-shim       src/main/resources/public/node_modules/es6-shim",
-    "build:vendors-systemjs": "ncp node_modules/systemjs/dist  src/main/resources/public/node_modules/systemjs/dist",
-    "build:vendors-angular2": "ncp node_modules/angular2       src/main/resources/public/node_modules/angular2",
-    "build:vendors-rxjs": "ncp node_modules/rxjs/bundles   src/main/resources/public/node_modules/rxjs/bundles",
+    "build:deploy":             "ncp ./web ../src/main/resources/public",
+    "build:vendors-mkdir": "mkdir -p ../src/main/resources/public/node_modules/{bootstrap/dist,es6-shim,systemjs/dist,angular2,rxjs/bundles}",
+    "build:vendors-bootstrap":  "ncp ./node_modules/bootstrap/dist ../src/main/resources/public/node_modules/bootstrap/dist",
+    "build:vendors-es6-shim":   "ncp ./node_modules/es6-shim       ../src/main/resources/public/node_modules/es6-shim",
+    "build:vendors-systemjs":   "ncp ./node_modules/systemjs/dist  ../src/main/resources/public/node_modules/systemjs/dist",
+    "build:vendors-angular2":   "ncp ./node_modules/angular2       ../src/main/resources/public/node_modules/angular2",
+    "build:vendors-rxjs":       "ncp ./node_modules/rxjs/bundles   ../src/main/resources/public/node_modules/rxjs/bundles",
 
-    "clean:web": "rimraf -rf src/main/web/app/**/*.{js,js.map}",
-    "clean:public": "rimraf -rf src/main/resources/public",
-    "clean:build": "rimraf -rf build/resources/main/public",
+    "clean:web":    "rimraf -rf ./web/app/**/*.{js,js.map}",
+    "clean:public": "rimraf -rf ../src/main/resources/public",
+    "clean:build":  "rimraf -rf ../build/resources/main/public",
 
     "postinstall": "npm-run-all typings:*",
     "typings:cliean": "rimraf -rf typings*",
     "typings:init": "typings init",
-    "typings:sa": "typings i es6-shim -SA",
-    "typings:da": "typings i node -DA"
+    "typings:sa":   "typings i es6-shim -SA",
+    "typings:da":   "typings i node -DA"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.17",
@@ -38,14 +38,14 @@
     "es6-shim": "^0.35.0",
     "reflect-metadata": "^0.1.3",
     "rxjs": "^5.0.0-beta.7",
-    "systemjs": "0.19.27",
+    "systemjs": "^0.19.28",
     "zone.js": "0.6.12"
   },
   "devDependencies": {
     "cash-mkdir": "^0.2.0",
     "lite-server": "^2.1.0",
     "ncp": "^2.0.0",
-    "npm-run-all": "^2.1.0",
+    "npm-run-all": "^2.1.1",
     "rimraf": "^2.5.2",
     "tslint": "^3.6.0",
     "typescript": "^1.8.10",
