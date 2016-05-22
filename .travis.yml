@@ -6,16 +6,18 @@ before_install:
   - nvm install 6
   - docker-compose up -d
 script:
+  - cd ui/
   - npm run travis-ci
+  - cd ../
   - gradle clean build
 after_script:
   - docker-compose kill
-  - true & cat ./*.log
+  - true & cat ui/*.log
 cache.directories:
   - /var/lib/docker
   - $HOME/.gradle
   - $HOME/.m2
-  - node_modules
+  - web/node_modules
   - .gradle
   - gradle
 notifications.on_failure: change # always|never

@@ -1,5 +1,5 @@
-import {Component, Input, EventEmitter, Output} from 'angular2/core'
-import {Item, Items} from './App/Item'
+import {Component} from 'angular2/core'
+import {Item} from './App/Item'
 import {NewItemComponent} from './App/NewItemComponent'
 import {EditItemComponent} from './App/EditItemComponent'
 import {HeadComponent} from './App/HeadComponent'
@@ -31,14 +31,14 @@ import {ItemService} from './App/ItemService';
 li {
   list-style-type: none;
 }
+.red {
+    color: orangered;
+}
 `],
   directives: [HeadComponent, NewItemComponent, EditItemComponent]
 })
 export class App {
   private selectedItem: Item
-
-  @Input('itemAddedEvent') private itemAddedEvent: EventEmitter<Item>
-  @Input('itemDeletedEvent') private itemDeletedEvent: EventEmitter<Item> = new EventEmitter<Item>()
 
   constructor(private itemService: ItemService) {}
 
