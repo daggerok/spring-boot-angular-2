@@ -1,4 +1,5 @@
-import {Item, Items} from './Item';
+import {Item} from './Item'
+
 /**
  * Created by mak on 5/21/16.
  */

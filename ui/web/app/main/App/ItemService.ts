@@ -1,10 +1,10 @@
+import {Injectable}   from 'angular2/core'
+import {Item, Items}  from './Item'
+import {db}           from './ItemMockedRepository'
+
 /**
  * Created by mak on 5/21/16.
  */
-import {Injectable} from 'angular2/core'
-import {Item, Items} from './Item'
-import {db} from './ItemMockedRepository';
-
 @Injectable()
 export class ItemService {
   public size = (): number => db.length
@@ -37,6 +37,8 @@ export class ItemService {
   public findOne = (id: number): Item => db[id]
 
   public findAll = (): Array<Item> => db.filter(item => Items.isValid(item))
+
+  public delete = (id: number) => db[id] = null
 /*
   public delete(item: Item) {
     let index = db.indexOf(item, 0);
@@ -45,5 +47,4 @@ export class ItemService {
     }
   }
 */
-  public delete = (id: number) => db[id] = null
 }
