@@ -11,7 +11,7 @@
     "travis-ci": "npm i && npm-run-all tslint build:clean build:compile",
 
     "build": "npm i && npm-run-all build:*",
-    "build:clean": "true & npm-run-all clean:*",
+    "build:clean": "true & npm run clean",
     "build:compile": "tsc -p ./web/app",
     "build:deploy": "ncp ./web ../src/main/resources/public",
     "build:vendors-mkdir": "mkdir -p ../src/main/resources/public/node_modules/{bootstrap/dist,es6-shim,systemjs/dist,angular2,rxjs/bundles}",
@@ -21,6 +21,7 @@
     "build:vendors-angular2": "ncp ./node_modules/angular2       ../src/main/resources/public/node_modules/angular2",
     "build:vendors-rxjs": "ncp ./node_modules/rxjs/bundles   ../src/main/resources/public/node_modules/rxjs/bundles",
 
+    "clean": "npm-run-all clean:*",
     "clean:web": "rimraf -rf ./web/app/**/*.{js,js.map}",
     "clean:public": "rimraf -rf ../src/main/resources/public",
     "clean:build": "rimraf -rf ../build/resources/main/public",

@@ -1,73 +1,86 @@
 import {Component} from 'angular2/core'
-import {OddPipe, EvenPipe, IsEvenPipe, IsOddPipe} from "./App/AppPipes"
+import {OddPipe, EvenPipe, IsEvenPipe, IsOddPipe} from './App/AppPipes'
 
 @Component({
   selector: 'app',
   template: `
-<div class="container">
+<div class="container-fluid">
   <h3 class="panel jumbotron blue">Angular 2 pipes</h3>
-  <section>
-    <section>
-      <div class="panel panel-heading">custom (even/odd) pipe</div>
 
-      <label for="custom">input</label>
-      <input name="custom" type="text" #custom (keyup)="0">
-      <div>{{custom.value | even}} is even: {{custom.value | isEven}}</div>
-      <div>{{custom.value | odd}} is odd: {{custom.value | isOdd}}</div>
-    </section>
-
-    <section>
-      read <a href="https://angular.io/docs/ts/latest/cookbook/a1-a2-quick-reference.html#!#filters-pipes" 
-              class="href">this</a>
-      and <a href="https://angular.io/docs/ts/latest/cookbook/a1-a2-quick-reference.html#!#filters-pipes" 
-             class="href">this</a>
-    </section>
-
+  <section class="row">
     <div class="panel panel-heading">
       <button type="button" class="btn btn-primary" (click)="reNew()">renew</button>
     </div>
 
-    <section>
-      <div class="panel panel-heading">number/currency pipe</div>
-
-      <label for="num">input</label>
-      <input name="num" type="number" #num (keyup)="0">
-      <input name="cur" type="text" value="EUR" #cur (change)="0" min="3" minlength="3">
-      <div>number: {{1.0 * num.value | number:'1.1-2'}}</div>
-      <div>currency: {{1.0 * num.value | currency:cur.value:shorter.checked}}</div>
-      <div>currency + number: {{1.0 * num.value | currency:cur.value:shorter.checked:'1.1-2'}}</div>
-      <label for="shorter">shorter</label>
-      <input type="checkbox" name="shorter" id="shorter" #shorter (change)="0">
+    <section class="col-sm-6">
+      <section>
+        <div class="panel panel-heading">custom stateful (async) pipe</div>
+  
+        <label for="customStateful">input</label>
+        <input name="customStateful" type="text" #customStateful (keyup)="0">
+        <div>
+          {{customStateful.value}} <span>is working... {{customStatefulPipe | async}}</span>
+        </div>
+      </section>
+  
+      <section >
+        <div class="panel panel-heading">custom stateless (even/odd) pipe</div>
+  
+        <label for="customStateless">input</label>
+        <input name="customStateless" type="text" #customStateless (keyup)="0">
+        <div>{{customStateless.value | even}} is even: {{customStateless.value | isEven}}</div>
+        <div>{{customStateless.value | odd}} is odd: {{customStateless.value | isOdd}}</div>
+      </section>
+  
+      <section >
+        read <a href="https://angular.io/docs/ts/latest/cookbook/a1-a2-quick-reference.html#!#filters-pipes" 
+                class="href">this</a>
+        and <a href="https://angular.io/docs/ts/latest/cookbook/a1-a2-quick-reference.html#!#filters-pipes" 
+               class="href">this</a>
+      </section>
+  
+      <section >
+        <div class="panel panel-heading">number/currency pipe</div>
+  
+        <label for="num">input</label>
+        <input name="num" type="number" #num (keyup)="0">
+        <input name="cur" type="text" value="EUR" #cur (change)="0" min="3" minlength="3">
+        <div>number: {{1.0 * num.value | number:'1.1-2'}}</div>
+        <div>currency: {{1.0 * num.value | currency:cur.value:shorter.checked}}</div>
+        <div>currency + number: {{1.0 * num.value | currency:cur.value:shorter.checked:'1.1-2'}}</div>
+        <label for="shorter">shorter</label>
+        <input type="checkbox" name="shorter" id="shorter" #shorter (change)="0">
+      </section>
+  
+      <section >
+        <div class="panel panel-heading">slice pipe</div>
+  
+        <label for="inp">input</label>
+        <input name="inp" type="text" #inp (keyup)="0">
+        <label for="from">from</label>
+        <input name="from" type="number" #from (keyup)="0">
+        <label for="to">to</label>
+        <input name="to" type="number" #to (keyup)="0">
+        <div>slice: {{inp.value | slice:from.value:to.value}}</div>
+      </section>
+  
+      <section>
+        <div class="panel panel-heading">lower/upper case pipe</div>
+  
+        <label for="caseIn"></label>
+        <input name="caseIn" type="text" #caseIn (keyup)="0">
+        <div>lowercase: {{caseIn.value | lowercase}}</div>
+        <div>uppercase: {{caseIn.value | uppercase}}</div>
+      </section>
     </section>
 
-    <section>
-      <div class="panel panel-heading">slice pipe</div>
-
-      <label for="inp">input</label>
-      <input name="inp" type="text" #inp (keyup)="0">
-      <label for="from">from</label>
-      <input name="from" type="number" #from (keyup)="0">
-      <label for="to">to</label>
-      <input name="to" type="number" #to (keyup)="0">
-      <div>slice: {{inp.value | slice:from.value:to.value}}</div>
-    </section>
-
-    <section>
-      <div class="panel panel-heading">lower/upper case pipe</div>
-
-      <label for="caseIn"></label>
-      <input name="caseIn" type="text" #caseIn (keyup)="0">
-      <div>lowercase: {{caseIn.value | lowercase}}</div>
-      <div>uppercase: {{caseIn.value | uppercase}}</div>
-    </section>
-
-    <section>
-      <div class="panel panel-heading">date pipe</div>
-
-      <div>json: <pre>{{today | json}}</pre></div>
-    </section>
-
-    <section>
+    <section class="col-sm-6">
+      <section>
+        <div class="panel panel-heading">date pipe</div>
+  
+        <div>json: <pre>{{today | json}}</pre></div>
+      </section>
+      
       <div class="panel panel-heading">date pipe</div>
 
       <div>today pattern is: <span class="grey">{{today}}</span></div>
@@ -96,7 +109,6 @@ import {OddPipe, EvenPipe, IsEvenPipe, IsOddPipe} from "./App/AppPipes"
       <div>timezone 'z' pattern is: <span class="grey">{{today | date:'z'}}</span></div>
       <div>timezone 'Z' pattern is: <span class="grey">{{today | date:'Z'}}</span></div>
     </section>
-
   </section>
 </div>
 `,
@@ -111,7 +123,11 @@ import {OddPipe, EvenPipe, IsEvenPipe, IsOddPipe} from "./App/AppPipes"
   pipes: [OddPipe, EvenPipe, IsEvenPipe, IsOddPipe]
 })
 export class App {
+  public static timeout: number = 2000
+
   private today: Date
+
+  private customStatefulPipe: Promise<string>
 
   constructor() {
     this.reNew()
@@ -119,5 +135,7 @@ export class App {
 
   public reNew() {
     this.today = new Date()
+    this.customStatefulPipe = new Promise((resolve, reject) =>
+      setTimeout(() => resolve(`resolved at ${this.today}`), App.timeout))
   }
 }
