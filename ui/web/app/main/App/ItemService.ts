@@ -3,7 +3,7 @@
  */
 import {Injectable} from 'angular2/core'
 import {Item, Items} from './Item'
-import {db} from './ItemMockedRepository';
+import {db} from './ItemMockedRepository'
 
 @Injectable()
 export class ItemService {
@@ -26,11 +26,11 @@ export class ItemService {
   public exists = (item: Item): boolean => db.filter(curr => this.equals(item, curr)).length > 0
 
   public equals = (i1: Item, i2: Item) =>
-    Items.isValid(i1) && Items.isValid(i2)
-    && i1.title === i2.title && i1.quantity === i2.quantity
+  Items.isValid(i1) && Items.isValid(i2)
+  && i1.title === i2.title && i1.quantity === i2.quantity
 
   public deepEquals = (item: Item): boolean =>
-    this.has(item) && db.filter(curr => item.id === curr.id && this.equals(item, curr)).length > 0
+  this.has(item) && db.filter(curr => item.id === curr.id && this.equals(item, curr)).length > 0
 
   public has = (item: Item): boolean => null != item && null != item.id && item.id < this.size()
 

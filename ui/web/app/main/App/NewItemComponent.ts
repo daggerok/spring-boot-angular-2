@@ -24,7 +24,7 @@ export class NewItemComponent {
   @Output('itemAddedEvent') private itemAddedEvent: EventEmitter<Item> = new EventEmitter<Item>()
 
   public onEnter(event: KeyboardEvent) {
-    if(event.which == this.enterKeyCode) {
+    if (event.which === this.enterKeyCode) {
       this.onItemAdded()
     }
   }

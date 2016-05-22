@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core'
+import {Component} from 'angular2/core'
 
 @Component({
   selector: 'head-component',
@@ -9,4 +9,5 @@ import {Component, Input} from 'angular2/core'
 }
 `],
 })
-export class HeadComponent {}
+export class HeadComponent {
+}

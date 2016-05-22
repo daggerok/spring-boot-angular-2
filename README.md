@@ -4,7 +4,7 @@ spring-boot-angular-2 [![build](https://travis-ci.org/daggerok/spring-boot-angul
 sources
 
 ```bash
-git clone --depth=1 --branch=shopping-list-app-services https://github.com/daggerok/spring-boot-angular-2.git spring-boot-angular-2
+git clone --depth=1 --branch=master https://github.com/daggerok/spring-boot-angular-2.git spring-boot-angular-2
 cd $_
 ```
 
@@ -12,7 +12,8 @@ cd $_
 
 so you can develop with lite-server:
 
-```sh
+```bash
+cd ui/
 npm start
 ```
 
@@ -27,18 +28,18 @@ docker-compose up -d
 point spring.redis.host to your docker ip address in `src/main/resources/application.yml`:
 
   - run `docker-machine ip` command for osx
-  - localhost for linux 
+  - localhost for linux
 
 bash
 
 ```bash
-gradle clean && npm run build && gradle bootRun
+cd ui/ && npm run build && cd ../ && gradle clean bootRun
 ```
 
 fish
 
-```fish
-gradle clean; npm run build; gradle bootRun
+```bash
+cd ui; npm run build; cd ..; gradle clean bootRun
 ```
 
 development backend
@@ -50,6 +51,7 @@ gradle bootRun
 development frontend
 
 ```bash
+cd ui/
 npm start
 ```
 

@@ -11,10 +11,10 @@
  */
 module.exports = {
   files: [
-    "src/main/web"
+    "./web"
   ],
   server: {
-    baseDir: "./src/main/web"
+    baseDir: "./web"
   },
   serveStatic: [
     '.' // node_modules/
