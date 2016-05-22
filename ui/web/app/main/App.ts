@@ -4,18 +4,23 @@ import {NewItemComponent}   from './App/NewItemComponent'
 import {EditItemComponent}  from './App/EditItemComponent'
 import {HeadComponent}      from './App/HeadComponent'
 import {ItemService}        from './App/ItemService'
+import {AppFilter}          from './App/FilterPipe'
 
 @Component({
   selector: 'app',
   template: `
 <div class="container">
   <head-component></head-component>
+
   <new-item (itemAddedEvent)="onItemAdded($event)"></new-item>
   
-  <section [hidden]="items().length < 1" class="listItems">
+  <section [hidden]="items().length < 1">
+    <label for="filter">filter</label>
+    <input type="text" name="filter" #filter (keyup)="0">
+
     <h5 class="panel-heading"></h5>
     <label>list items</label>
-    <ul *ngFor="let item of items()">
+    <ul *ngFor="let item of items() | filter:filter.value">
       <li (click)="onSelectItem(item)">{{item.id}}: {{item.title}} - {{item.quantity}}</li>
     </ul>
   </section>
@@ -35,7 +40,8 @@ li {
     color: orangered;
 }
 `],
-  directives: [HeadComponent, NewItemComponent, EditItemComponent]
+  directives: [HeadComponent, NewItemComponent, EditItemComponent],
+  pipes: [AppFilter]
 })
 export class App {
   private selectedItem: Item
