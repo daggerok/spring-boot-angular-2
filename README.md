@@ -1,10 +1,10 @@
-spring-boot-angular-2 [![build](https://travis-ci.org/daggerok/spring-boot-angular-2.svg?branch=master)](https://travis-ci.org/daggerok/spring-boot-angular-2)
+spring-boot-angular-2 [![build](https://travis-ci.org/daggerok/spring-boot-angular-2.svg?branch=ng-route)](https://travis-ci.org/daggerok/spring-boot-angular-2)
 =====================
 
 sources
 
 ```bash
-git clone --depth=1 --branch=master https://github.com/daggerok/spring-boot-angular-2.git spring-boot-angular-2
+git clone --depth=1 --branch=ng-route https://github.com/daggerok/spring-boot-angular-2.git spring-boot-angular-2
 cd $_
 ```
 
