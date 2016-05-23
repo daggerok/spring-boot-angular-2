@@ -4,8 +4,8 @@ import {One} from './App/One'
 import {Two} from './App/Two'
 
 @RouteConfig([
-  { path: '/one', name: 'One', component: One },
-  { path: '/two', name: 'Two', component: Two }
+  { path: '/one', name: 'One', component: One, useAsDefault: true },
+  { path: '/two/:src', name: 'Two', component: Two }
 ])
 @Component({
   selector: 'app',
@@ -14,7 +14,7 @@ import {Two} from './App/Two'
   <h3 class="panel panel-heading blue">Angular 2</h3>
   <ul>
     <li><a [routerLink]="['One']">One</a></li>
-    <li><a [routerLink]="['Two']">Two</a></li>
+    <li><a [routerLink]="['Two', {src: 'App', optional: 'param was not passed'}]">Two</a></li>
   </ul>
   <router-outlet></router-outlet>
 </div>
