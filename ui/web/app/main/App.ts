@@ -3,10 +3,6 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 import {One} from './App/One'
 import {Two} from './App/Two'
 
-@RouteConfig([
-  { path: '/one', name: 'One', component: One, useAsDefault: true },
-  { path: '/two/:src', name: 'Two', component: Two }
-])
 @Component({
   selector: 'app',
   template: `
@@ -16,7 +12,9 @@ import {Two} from './App/Two'
     <li><a [routerLink]="['One']">One</a></li>
     <li><a [routerLink]="['Two', {src: 'App', optional: 'param was not passed'}]">Two</a></li>
   </ul>
-  <router-outlet></router-outlet>
+  <div class="panel">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 `,
   styles: [`
@@ -29,4 +27,8 @@ li {
 `],
   directives: [ROUTER_DIRECTIVES]
 })
+@RouteConfig([
+  { path: '/one/...', name: 'One', component: One, useAsDefault: true },
+  { path: '/two/:src', name: 'Two', component: Two }
+])
 export class App {}

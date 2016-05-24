@@ -12,5 +12,5 @@ src/main/resources/public
 **/node_modules/
 **/*.log*
 ui/typings*
-!ui/**/tsconfig.json
 ui/web/**/*.js*
+!*tsconfig.json
