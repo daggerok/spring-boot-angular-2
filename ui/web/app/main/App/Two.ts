@@ -1,5 +1,5 @@
-import {Component, OnInit} from 'angular2/core'
-import {RouteParams} from 'angular2/router';
+import {Component, OnInit}  from 'angular2/core'
+import {RouteParams}        from 'angular2/router'
 
 /**
  * Created by mak on 5/23/16.

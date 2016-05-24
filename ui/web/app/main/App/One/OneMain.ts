@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core'
-import {Router} from 'angular2/router'
+import {Component}  from 'angular2/core'
+import {Router}     from 'angular2/router'
 
 /**
  * Created by mak on 5/23/16.

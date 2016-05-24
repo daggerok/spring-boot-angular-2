@@ -1,7 +1,7 @@
-import {Component} from 'angular2/core'
+import {Component}                              from 'angular2/core'
 import {Router, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
-import {OneSub} from './One/OneSub'
-import {OneMain} from './One/OneMain'
+import {OneSub}                                 from './One/OneSub'
+import {OneMain}                                from './One/OneMain'
 
 /**
  * Created by mak on 5/23/16.
@@ -14,7 +14,7 @@ import {OneMain} from './One/OneMain'
   <div (click)="onNavigate()">go to component Two</div>
   <ul>
     <li><a [routerLink]="['OneMain']">one/main</a></li>
-    <li><a [routerLink]="['OneSub']">one/sub</a></li>
+    <li><a [routerLink]="['OneSub']">one/sub</a> (cancel to stay, confirm to route)</li>
   </ul>
   <div class="panel">
     <router-outlet></router-outlet>

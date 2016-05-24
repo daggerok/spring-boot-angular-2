@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import static java.util.Objects.nonNull;
+
 /**
  * Created by mak on 5/13/16.
  */
@@ -24,7 +26,10 @@ public class GlobalErrorHandler implements ErrorController {
     @GetMapping("/error")
     public void handle(HttpServletRequest request, HttpServletResponse response, Exception error) {
 
-        log.error(request.getRequestURI(), error);
+        if (nonNull(error) && nonNull(error.getMessage())) {
+            log.error(request.getRequestURI(), error);
+        }
+
         response.sendRedirect(contextPath.concat("/"));
     }
 

@@ -1,7 +1,7 @@
-import {Component} from 'angular2/core'
+import {Component}                      from 'angular2/core'
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
-import {One} from './App/One'
-import {Two} from './App/Two'
+import {One}                            from './App/One'
+import {Two}                            from './App/Two'
 
 @Component({
   selector: 'app',
