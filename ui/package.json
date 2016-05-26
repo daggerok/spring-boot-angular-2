@@ -2,14 +2,11 @@
   "scripts": {
     "test": "npm i && npm run tslint",
     "tslint": "tslint './web/app/**/*.ts'",
-
     "start": "npm run dev -- server",
     "dev": "npm i && npm-run-all --parallel watch",
     "watch": "npm run build:compile -- -w",
     "server": "lite-server",
-
     "travis-ci": "npm i && npm-run-all tslint build:clean build:compile",
-
     "build": "npm i && npm-run-all build:*",
     "build:clean": "true & npm-run-all clean:*",
     "build:compile": "tsc -p ./web/app",
@@ -20,11 +17,9 @@
     "build:vendors-systemjs": "ncp ./node_modules/systemjs/dist  ../src/main/resources/public/node_modules/systemjs/dist",
     "build:vendors-angular2": "ncp ./node_modules/angular2       ../src/main/resources/public/node_modules/angular2",
     "build:vendors-rxjs": "ncp ./node_modules/rxjs/bundles   ../src/main/resources/public/node_modules/rxjs/bundles",
-
     "clean:web": "rimraf -rf ./web/app/**/*.{js,js.map}",
     "clean:public": "rimraf -rf ../src/main/resources/public",
     "clean:build": "rimraf -rf ../build/resources/main/public",
-
     "postinstall": "./offline/offline-npm --postinstall ; npm-run-all typings:*",
     "typings:cliean": "rimraf -rf typings*",
     "typings:init": "typings init ./web/app",
@@ -43,6 +38,7 @@
   },
   "devDependencies": {
     "cash-mkdir": "^0.2.0",
+    "http-proxy-middleware": "^0.15.0",
     "lite-server": "^2.1.0",
     "ncp": "^2.0.0",
     "npm-run-all": "^2.1.1",

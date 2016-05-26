@@ -1,3 +1,5 @@
+#endpoints.cors.allowed-origins: /api/*
+
 spring:
   data.rest.base-path: /api
   redis.host: docker
