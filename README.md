@@ -27,8 +27,8 @@ docker-compose up -d
 
 point spring.redis.host to your docker ip address in `src/main/resources/application.yml`:
 
-  - run `docker-machine ip` command for osx
-  - localhost for linux
+- run `docker-machine ip` command for osx
+- localhost for linux
 
 bash
 
